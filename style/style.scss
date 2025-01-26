@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+@mixin font($fontSize, $lineHeight, $color, $fontWeight){
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    color: $color;
+    font-weight: $fontWeight;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0px 20px;
+}
+
+.items {
+    margin-bottom: 33px;
+    margin-top: 32px;
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: space-between;
+        column-gap: 28px;
+        row-gap: 28px;
+    }
+
+    &__icon {
+        display: flex;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.04);
+        border-radius: 100px 24px 24px 100px;
+        max-width: 437px;
+    }
+
+    &__wrapper-img {
+        margin-right: 16px;
+        border-radius: 50%;
+    }
+
+    &__img {
+        margin-top: 8px;
+        margin-left: 8px;
+        border-radius: 50%;
+    }
+
+    &__content {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    &__weight {
+        @include font(13px, 24px, rgba(0, 0, 0, 0.32), 600);
+        margin-bottom: 8px;
+    }
+
+    &__title {
+        @include font(20px, 24px, rgba(0, 0, 0, 1), 600);
+        margin-bottom: 44px;
+    }
+
+    &__price {
+        @include font(28px, 48px, rgba(226, 83, 36, 1), 600);
+    }
+
+    &__wrapper-like {
+        border: none;
+        cursor: pointer;
+        position: absolute;
+        left: 397px;
+        top: 16px;
+        background: none;
+
+        path{
+            fill: rgba(217, 217, 217, 1);
+        }
+
+        &:hover {
+            path{
+                fill: rgba(226, 83, 36, 1);
+                transition: all .3s ease 0s;
+            }
+        }
+        
+        
+    }
+
+    .like__button {
+        path{
+            fill: rgba(226, 83, 36, 1);
+        }
+    }
+
+    &__ellipse-btn {
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: absolute;
+        left: 370px;
+        top: 116px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 1);
+        border: 1px solid transparent;
+        transition: all .3s ease 0s;
+
+        &:hover {
+            border: 1px solid rgba(226, 83, 36, 1);
+
+            path{
+                transition: all .3s ease 0s;
+            }
+        }
+        &:active {
+            border: 1px solid rgb(7, 240, 57);
+
+            path{
+                fill: rgb(7, 240, 57);
+                transition: all .3s ease 0s;
+                
+            }
+        }
+    }
+
+    &__wrapper-cart {
+        padding: 12px 14px;
+    }
+}
+.disable {
+    display: none;
+}
+.active {
+    display: block;
+}
