@@ -1,4 +1,18 @@
+//Слайдер
+const pagination = document.querySelectorAll('.banner .banner__pagination .banner__line');
+const slides = document.querySelectorAll('.banner .banner__slide');
 
+function currentSlide(n){
+    for(let i=0; i < pagination.length; i++){
+        slides[i].style.display = 'none';
+        pagination[i].classList.remove('active');
+        pagination[i].classList.add('inactive');
+    }
+     
+    slides[n-1].style.display = 'block';
+    pagination[n-1].classList.remove('inactive')
+    pagination[n-1].classList.add('active')
+}
 
 // Функция на добавление лайка на блюдо
 const activeLike = document.querySelectorAll('.items .items__container .items__icon button')
