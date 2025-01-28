@@ -46,6 +46,7 @@
         margin-bottom: 25px;
         column-gap: 24px;
         padding: 16px 0;
+        background-color: #FFF;
     }
     &__logo{
         display: flex;
@@ -330,6 +331,6 @@
 .disable {
     display: none;
 }
-.active {
+.enable {
     display: block;
 }

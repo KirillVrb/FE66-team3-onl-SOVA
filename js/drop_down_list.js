@@ -20,66 +20,86 @@ const activeLike = document.querySelectorAll('.items .items__container .items__i
 activeLike[0].onclick = function () {
     const like = document.querySelectorAll('.items .like__button')
     const myLike = like [0]
-    if (myLike.classList.contains('active')) {
-        myLike.classList.remove('active')
+    if (myLike.classList.contains('enable')) {
+        myLike.classList.remove('enable')
         myLike.classList.add('disable')
     } else {
-        myLike.classList.add('active')
+        myLike.classList.add('enable')
         myLike.classList.remove('disable')
     }
 }
 activeLike[2].onclick = function () {
     const like = document.querySelectorAll('.items .like__button')
     const myLike = like [1]
-    if (myLike.classList.contains('active')) {
-        myLike.classList.remove('active')
+    if (myLike.classList.contains('enable')) {
+        myLike.classList.remove('enable')
         myLike.classList.add('disable')
     } else {
-        myLike.classList.add('active')
+        myLike.classList.add('enable')
         myLike.classList.remove('disable')
     }
 }
 activeLike[4].onclick = function () {
     const like = document.querySelectorAll('.items .like__button')
     const myLike = like [2]
-    if (myLike.classList.contains('active')) {
-        myLike.classList.remove('active')
+    if (myLike.classList.contains('enable')) {
+        myLike.classList.remove('enable')
         myLike.classList.add('disable')
     } else {
-        myLike.classList.add('active')
+        myLike.classList.add('enable')
         myLike.classList.remove('disable')
     }
 }
 activeLike[6].onclick = function () {
     const like = document.querySelectorAll('.items .like__button')
     const myLike = like [3]
-    if (myLike.classList.contains('active')) {
-        myLike.classList.remove('active')
+    if (myLike.classList.contains('enable')) {
+        myLike.classList.remove('enable')
         myLike.classList.add('disable')
     } else {
-        myLike.classList.add('active')
+        myLike.classList.add('enable')
         myLike.classList.remove('disable')
     }
 }
 activeLike[8].onclick = function () {
     const like = document.querySelectorAll('.items .like__button')
     const myLike = like [4]
-    if (myLike.classList.contains('active')) {
-        myLike.classList.remove('active')
+    if (myLike.classList.contains('enable')) {
+        myLike.classList.remove('enable')
         myLike.classList.add('disable')
     } else {
-        myLike.classList.add('active')
+        myLike.classList.add('enable')
         myLike.classList.remove('disable')
     }
 }
 activeLike[10].onclick = function () {
     const like = document.querySelectorAll('.items .like__button')
     const myLike = like [5]
-    if (myLike.classList.contains('active')) {
-        myLike.classList.remove('active')
+    if (myLike.classList.contains('enable')) {
+        myLike.classList.remove('enable')
         myLike.classList.add('disable')
     } else {
-        myLike.classList.add('active')
+        myLike.classList.add('enable')
         myLike.classList.remove('disable')
     }
+}
+
+// Переход по клику на страницу Reserved
+// На первом слайде
+const reservedLinkFirst = document.getElementById ('reservations-first')
+
+reservedLinkFirst.onclick = function () {
+    window.location.href = '/reservations.html'
+}
+// На втором слайде
+const reservedLinkSecond = document.getElementById ('reservations-second')
+
+reservedLinkSecond.onclick = function () {
+    window.location.href = '/reservations.html'
+}
+// На третьем слайде
+const reservedLinkThird = document.getElementById ('reservations-third')
+
+reservedLinkThird.onclick = function () {
+    window.location.href = '/reservations.html'
 }
