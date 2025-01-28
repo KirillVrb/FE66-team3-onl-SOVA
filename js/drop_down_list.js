@@ -103,3 +103,17 @@ const reservedLinkThird = document.getElementById ('reservations-third')
 reservedLinkThird.onclick = function () {
     window.location.href = '/reservations.html'
 }
+
+
+//выпадающий список
+const dropdownButton = document.querySelector('#dropdown-button')
+const dropdownList = document.querySelector('#dropdown-list')
+
+dropdownButton.addEventListener('click', () => {
+    if (dropdownList.classList.contains('disp')) {
+        dropdownList.classList.remove('disp')
+    } else (
+        dropdownList.classList.add('disp')
+    )
+});
+
