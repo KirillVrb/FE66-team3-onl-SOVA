@@ -47,6 +47,7 @@
   -moz-column-gap: 24px;
        column-gap: 24px;
   padding: 16px 0;
+  background-color: #FFF;
 }
 .header__logo {
   display: flex;
@@ -339,6 +340,6 @@
   display: none;
 }
 
-.active {
+.enable {
   display: block;
 }/*# sourceMappingURL=style.css.map */
