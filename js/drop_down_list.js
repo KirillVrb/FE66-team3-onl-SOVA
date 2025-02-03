@@ -92,6 +92,38 @@ dropdownButton.addEventListener('click', () => {
     )
 });
 
+// выпадающий список смены языка
+const languageButton = document.querySelector('#language-button')
+const languageList = document.querySelector('#language-list')
+
+languageButton.addEventListener('click', () => {
+    if (languageList.classList.contains('disp')) {
+        languageList.classList.remove('disp')
+    } else (
+        languageList.classList.add('disp')
+    )
+});
+// смена языка
+var txt = {
+    en: {'menu':'Menu','organization':'Organization of events','reservations':'Table reservations','children':'For children','delivery':'Delivery'}
+    ,ru: {'menu':'Меню','organization':'Организация мероприятий', 'reservations':'Бронь столов','children':'Для детей','delivery':'Доставка'}
+  };
+  document.getElementById('eng').addEventListener('click', setLang.bind(null,'en'));
+  document.getElementById('rus').addEventListener('click', setLang.bind(null,'ru'));
+
+  function setLang(lang){
+    var p;
+    if( !txt.hasOwnProperty(lang)) return;
+    if( window.hasOwnProperty('localStorage'))
+       window.localStorage.setItem('lang', lang);
+    for(p in txt[lang]) {
+      document.getElementById(p).innerText = txt[lang][p];
+    }
+  }
+  
+  var lang = (window.hasOwnProperty('localStorage') && window.localStorage.getItem('lang', lang)) || 'en';
+  setLang(lang);
+
 // fetch
 const createArticles = (articles) => {
     const articlesContainer = document.getElementById('articles')
