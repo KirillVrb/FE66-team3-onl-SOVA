@@ -39,8 +39,8 @@
                             <p class="header__text">+372 (33) 240-340-30</p>
                         </div>
                     </div>
-                    <div class="header__actions">
-                        <a class="header__actions-desk" href="#">
+                    <div class="header__actions" id="modal-container">
+                        <button class="header__actions-btn open-modal" data-modal="favourites-modal">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <mask id="mask0_544_1706" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                             <rect width="24" height="24" fill="#D9D9D9"/>
@@ -50,8 +50,8 @@
                             </g>
                             </svg>
                             <p class="header__text text-link">Favourites</p>
-                        </a>
-                        <a class="header__actions-desk" href="#">
+                        </button>
+                        <button class="header__actions-btn open-modal" data-modal="basket-modal">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <mask id="mask0_544_1711" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                             <rect width="24" height="24" fill="#D9D9D9"/>
@@ -61,8 +61,8 @@
                             </g>
                             </svg>
                             <p class="header__text text-link">Basket</p>
-                        </a>
-                        <a class="header__actions-desk" href="#">
+                        </button>
+                        <button class="header__actions-btn open-modal" data-modal="login-modal">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <mask id="mask0_544_1716" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                             <rect width="24" height="24" fill="#D9D9D9"/>
@@ -72,12 +72,59 @@
                             </g>
                             </svg>
                             <p class="header__text text-link">Login</p>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
+    <div class="login" id="login-modal">
+        <div class="login__box">
+            <button class="login__btn-close" id="close-modal-svg">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="Layer_3" data-name="Layer 3"><path d="m16 1a15 15 0 1 0 15 15 15.017 15.017 0 0 0 -15-15zm5.707 19.293a1 1 0 1 1 -1.414 1.414l-4.293-4.293-4.293 4.293a1 1 0 0 1 -1.414-1.414l4.293-4.293-4.293-4.293a1 1 0 0 1 1.414-1.414l4.293 4.293 4.293-4.293a1 1 0 0 1 1.414 1.414l-4.293 4.293z"/></g></svg>
+            </button>
+            <h1 class="login__title">Log in</h1>
+            <form class="login__form" id="userform">
+                <input class="login__input" type="text" placeholder="Phone number">
+                <input class="login__input" type="text" placeholder="Password">
+                <button class="login__button" id="close-modal-btn" form="userform">Log in</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="basket" id="basket-modal">
+        <div class="basket__box">
+            <button class="basket__btn-close" id="close-modal-svg">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="Layer_3" data-name="Layer 3"><path d="m16 1a15 15 0 1 0 15 15 15.017 15.017 0 0 0 -15-15zm5.707 19.293a1 1 0 1 1 -1.414 1.414l-4.293-4.293-4.293 4.293a1 1 0 0 1 -1.414-1.414l4.293-4.293-4.293-4.293a1 1 0 0 1 1.414-1.414l4.293 4.293 4.293-4.293a1 1 0 0 1 1.414 1.414l-4.293 4.293z"/></g></svg>
+            </button>
+            <div class="basket__main">
+                <h1 class="basket__title">Basket</h1>
+                <div class="basket__options">
+                    <button class="basket__options-btn">Delivery</button>
+                    <button class="basket__options-btn">Carryout</button>
+                </div>
+            </div>
+                <p class="basket__text-delivery">Delivery: <span>0 BYN</span></p>
+                <div class="basket__result">
+                    <div class="basket__amout">
+                        <p class="basket__total">Total</p>
+                        <p class="basket__price">0 BYN</p>
+                    </div>
+                    <button class="basket__button">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="favourites" id="favourites-modal">
+        <div class="favourites__box">
+            <button class="favourites__btn-close" id="close-modal-svg">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="Layer_3" data-name="Layer 3"><path d="m16 1a15 15 0 1 0 15 15 15.017 15.017 0 0 0 -15-15zm5.707 19.293a1 1 0 1 1 -1.414 1.414l-4.293-4.293-4.293 4.293a1 1 0 0 1 -1.414-1.414l4.293-4.293-4.293-4.293a1 1 0 0 1 1.414-1.414l4.293 4.293 4.293-4.293a1 1 0 0 1 1.414 1.414l-4.293 4.293z"/></g></svg>
+            </button>
+            <h1 class="basket__title">Favourites</h1>
+        </div>
+    </div>
+    
     <div class="main">
         <div class="container">
             <nav class="main__nav">
