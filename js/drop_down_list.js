@@ -120,9 +120,33 @@ var txt = {
       document.getElementById(p).innerText = txt[lang][p];
     }
   }
-  
+
   var lang = (window.hasOwnProperty('localStorage') && window.localStorage.getItem('lang', lang)) || 'en';
   setLang(lang);
+
+// Темная тема
+const darkbtn = document.querySelector('#dark');
+const ligthbtn = document.querySelector('#light');
+const themeSwitcher = document.querySelector('#theme__switcher');
+
+darkbtn.addEventListener("click", () => {
+    themeSwitcher.classList.add("darktheme");
+  if (themeSwitcher.classList.contains("darktheme")) {
+    localStorage.setItem("theme", "darktheme");
+  }
+});
+
+ligthbtn.addEventListener("click", () => {
+    themeSwitcher.classList.remove("darktheme");
+  if (!themeSwitcher.classList.contains("darktheme")) {
+    localStorage.setItem("theme", "");
+  }
+});
+
+const storedtheme = localStorage.getItem("theme");
+if (storedtheme) {
+    themeSwitcher.classList.add(storedtheme);
+}
 
 // fetch
 const createArticles = (articles) => {

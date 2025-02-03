@@ -498,6 +498,7 @@
     &__button{
         border: none;
         background: none;
+        cursor: pointer;
     }
 }
 .language {
@@ -510,8 +511,10 @@
 .disp{
     display: block;
 }
-
-
+.darktheme {
+    background-color: #000;
+    color: #fff;
+  }
 
 .items {
     margin-bottom: 33px;
