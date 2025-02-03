@@ -73,20 +73,281 @@
         transition: all .3s linear;
     }
     .text-link:hover{
-        color: rgba(0, 0, 0, .5);
+        color: rgba(226, 83, 36, 1);
     }
     &__actions{
         display: flex;
         column-gap: 24px;
 
-        &-desk{
+        &-btn{
             display: flex;
             column-gap: 8px;
             align-items: center;
             text-decoration: none;
+            cursor: pointer;
+            border: none;
+            background-color: #fff;
         }
     }
 }
+
+/*modal*/
+.login{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0 , 0.5);
+
+    &__box{
+        max-width: 640px;
+        padding: 36px 40px 91px;
+        background-color: #fff;
+        position: relative;
+        width: 100%;
+        border-radius: 16px;
+    }
+    &__btn-close{
+        border: none;
+        padding: 5px;
+        position: absolute;
+        top: -3px;
+        right: -4px;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    &__btn-close svg path{
+        fill: rgba(226, 83, 36, 1);
+        transition: fill 0.3s linear;
+    }
+    &__btn-close svg path:hover{
+        fill: rgb(215, 69, 21);
+    }
+    &__btn-close svg path:active{
+        fill: rgb(177, 53, 12);
+    }
+    &__title{
+        @include font(36px, 44px, rgba(0, 0, 0, 1), 600);
+        margin-bottom: 40px;
+        font-family: "Montserrat", serif;
+    }
+    &__input{
+        border: 1px solid rgba(0, 0, 0, 0.16);
+        display: block;
+        margin: 40px 0;
+        width: 100%;
+        height: 72px;
+        border-radius: 16px;
+        padding: 10px;
+        outline: none;
+    }
+    &__button{
+        @include font(20px, 24px, #fff, 600);
+        font-family: "Montserrat", serif;
+        border: none;
+        background: rgba(226, 83, 36, 1);
+        width: 100%;
+        padding: 20px;
+        color: #FFFFFF;
+        border-radius: 16px;
+        transition: all 0.3s linear;
+        &:hover{
+            background: rgb(215, 69, 21);
+        }
+        &:active{
+            background: rgb(177, 53, 12);
+        }
+    }
+}
+.login.active{
+    display: flex;
+}
+
+.basket{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0 , 0.5);
+
+    &__box{
+        max-width: 640px;
+        padding: 36px 40px;
+        background-color: #fff;
+        position: relative;
+        width: 100%;
+        border-radius: 16px;
+    }
+    &__btn-close{
+        border: none;
+        padding: 5px;
+        position: absolute;
+        top: -3px;
+        right: -4px;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    &__btn-close svg path{
+        fill: rgba(226, 83, 36, 1);
+        transition: fill 0.3s linear;
+    }
+    &__btn-close svg path:hover{
+        fill: rgb(215, 69, 21);
+    }
+    &__btn-close svg path:active{
+        fill: rgb(177, 53, 12);
+    }
+    &__main{
+        display: flex;
+        justify-content: space-between;
+        column-gap: 15px;
+        margin-bottom: 32px;
+    }
+    &__title{
+        @include font(48px, 58px, rgba(0, 0, 0, 1), 600);
+        font-family: "Montserrat", serif;
+    }
+    &__options{
+        display: flex;
+        background-color: rgba(0, 0, 0, 0.04);
+        border-radius: 100px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+    &__options-btn{
+        @include font(20px, 24px, rgba(0, 0, 0, 0.32), 500);
+        font-family: "Montserrat", serif;
+        padding: 16px 24px;
+        border: none;
+        border-radius: 100px;
+        background-color: transparent;
+        transition: all 0.3s linear;
+        &:hover{
+            background-color: rgba(255, 255, 255, 1);
+            color: rgba(226, 83, 36, 1);
+            box-shadow: 0 8px 0 rgba(0, 0, 0, 0.04);
+        }
+    }
+    &__text-delivery{
+        @include font(20px, 24px, rgba(0, 0, 0, 1), 600);
+        font-family: "Montserrat", serif;
+        margin-bottom: 57px;
+        position: relative;
+        &::before{
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.08);
+            left: 0;
+            top: 35px;
+        }
+    }
+    span{
+        @include font(20px, 24px, rgba(0, 169, 108, 1), 600);
+        font-family: "Montserrat", serif;
+    }
+    &__result{
+        display: flex;
+        justify-content: space-between;
+        column-gap: 10px;
+    }
+    &__total{
+        @include font(13px, 15px, rgba(0, 0, 0, 0.32), 500);
+        font-family: "Montserrat", serif;
+        margin-bottom: 9px;
+    }
+    &__price{
+        @include font(36px, 40px, rgba(226, 83, 36, 1), 600);
+        font-family: "Montserrat", serif;
+    }
+    &__button{
+        @include font(20px, 24px, rgba(255, 255, 255, 1), 600);
+        font-family: "Montserrat", serif;
+        border: none;
+        background-color: rgba(226, 83, 36, 1);
+        max-width: 164px;
+        width: 100%;
+        padding: 20px 32px;
+        cursor: pointer;
+        border-radius: 100px;
+        transition: all 0.3s linear;
+        &:hover{
+            background-color: rgb(215, 69, 21);
+        }
+        &:active{
+            background-color: rgb(177, 53, 12);
+        }
+    }
+}
+.basket.active{
+    display: flex;
+}
+.favourites{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0 , 0.5);
+    
+    &__box{
+        max-width: 640px;
+        padding: 36px;
+        background-color: #fff;
+        position: relative;
+        width: 100%;
+        height: 500px;
+        border-radius: 16px;
+    }
+    &__btn-close{
+        border: none;
+        padding: 5px;
+        position: absolute;
+        top: -3px;
+        right: -4px;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    &__btn-close svg path{
+        fill: rgba(226, 83, 36, 1);
+        transition: fill 0.3s linear;
+    }
+    &__btn-close svg path:hover{
+        fill: rgb(215, 69, 21);
+    }
+    &__btn-close svg path:active{
+        fill: rgb(177, 53, 12);
+    }
+    &__title{
+        @include font(48px, 58px, rgba(0, 0, 0, 1), 600);
+        font-family: "Montserrat", serif;
+    }
+}
+.favourites.active{
+    display: flex;
+}
+
 /*banner*/
 .banner{
     margin-bottom: 48px;

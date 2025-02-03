@@ -78,19 +78,312 @@
   transition: all 0.3s linear;
 }
 .header .text-link:hover {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgb(226, 83, 36);
 }
 .header__actions {
   display: flex;
   -moz-column-gap: 24px;
        column-gap: 24px;
 }
-.header__actions-desk {
+.header__actions-btn {
   display: flex;
   -moz-column-gap: 8px;
        column-gap: 8px;
   align-items: center;
   text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+}
+
+/*modal*/
+.login {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.login__box {
+  max-width: 640px;
+  padding: 36px 40px 91px;
+  background-color: #fff;
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+}
+.login__btn-close {
+  border: none;
+  padding: 5px;
+  position: absolute;
+  top: -3px;
+  right: -4px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.login__btn-close svg path {
+  fill: rgb(226, 83, 36);
+  transition: fill 0.3s linear;
+}
+.login__btn-close svg path:hover {
+  fill: rgb(215, 69, 21);
+}
+.login__btn-close svg path:active {
+  fill: rgb(177, 53, 12);
+}
+.login__title {
+  font-size: 36px;
+  line-height: 44px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  margin-bottom: 40px;
+  font-family: "Montserrat", serif;
+}
+.login__input {
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  display: block;
+  margin: 40px 0;
+  width: 100%;
+  height: 72px;
+  border-radius: 16px;
+  padding: 10px;
+  outline: none;
+}
+.login__button {
+  font-size: 20px;
+  line-height: 24px;
+  color: #fff;
+  font-weight: 600;
+  font-family: "Montserrat", serif;
+  border: none;
+  background: rgb(226, 83, 36);
+  width: 100%;
+  padding: 20px;
+  color: #FFFFFF;
+  border-radius: 16px;
+  transition: all 0.3s linear;
+}
+.login__button:hover {
+  background: rgb(215, 69, 21);
+}
+.login__button:active {
+  background: rgb(177, 53, 12);
+}
+
+.login.active {
+  display: flex;
+}
+
+.basket {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.basket__box {
+  max-width: 640px;
+  padding: 36px 40px;
+  background-color: #fff;
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+}
+.basket__btn-close {
+  border: none;
+  padding: 5px;
+  position: absolute;
+  top: -3px;
+  right: -4px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.basket__btn-close svg path {
+  fill: rgb(226, 83, 36);
+  transition: fill 0.3s linear;
+}
+.basket__btn-close svg path:hover {
+  fill: rgb(215, 69, 21);
+}
+.basket__btn-close svg path:active {
+  fill: rgb(177, 53, 12);
+}
+.basket__main {
+  display: flex;
+  justify-content: space-between;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+  margin-bottom: 32px;
+}
+.basket__title {
+  font-size: 48px;
+  line-height: 58px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  font-family: "Montserrat", serif;
+}
+.basket__options {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+.basket__options-btn {
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.32);
+  font-weight: 500;
+  font-family: "Montserrat", serif;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 100px;
+  background-color: transparent;
+  transition: all 0.3s linear;
+}
+.basket__options-btn:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(226, 83, 36);
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.04);
+}
+.basket__text-delivery {
+  font-size: 20px;
+  line-height: 24px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  font-family: "Montserrat", serif;
+  margin-bottom: 57px;
+  position: relative;
+}
+.basket__text-delivery::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.08);
+  left: 0;
+  top: 35px;
+}
+.basket span {
+  font-size: 20px;
+  line-height: 24px;
+  color: rgb(0, 169, 108);
+  font-weight: 600;
+  font-family: "Montserrat", serif;
+}
+.basket__result {
+  display: flex;
+  justify-content: space-between;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.basket__total {
+  font-size: 13px;
+  line-height: 15px;
+  color: rgba(0, 0, 0, 0.32);
+  font-weight: 500;
+  font-family: "Montserrat", serif;
+  margin-bottom: 9px;
+}
+.basket__price {
+  font-size: 36px;
+  line-height: 40px;
+  color: rgb(226, 83, 36);
+  font-weight: 600;
+  font-family: "Montserrat", serif;
+}
+.basket__button {
+  font-size: 20px;
+  line-height: 24px;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-family: "Montserrat", serif;
+  border: none;
+  background-color: rgb(226, 83, 36);
+  max-width: 164px;
+  width: 100%;
+  padding: 20px 32px;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: all 0.3s linear;
+}
+.basket__button:hover {
+  background-color: rgb(215, 69, 21);
+}
+.basket__button:active {
+  background-color: rgb(177, 53, 12);
+}
+
+.basket.active {
+  display: flex;
+}
+
+.favourites {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.favourites__box {
+  max-width: 640px;
+  padding: 36px;
+  background-color: #fff;
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 16px;
+}
+.favourites__btn-close {
+  border: none;
+  padding: 5px;
+  position: absolute;
+  top: -3px;
+  right: -4px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.favourites__btn-close svg path {
+  fill: rgb(226, 83, 36);
+  transition: fill 0.3s linear;
+}
+.favourites__btn-close svg path:hover {
+  fill: rgb(215, 69, 21);
+}
+.favourites__btn-close svg path:active {
+  fill: rgb(177, 53, 12);
+}
+.favourites__title {
+  font-size: 48px;
+  line-height: 58px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  font-family: "Montserrat", serif;
+}
+
+.favourites.active {
+  display: flex;
 }
 
 /*banner*/
