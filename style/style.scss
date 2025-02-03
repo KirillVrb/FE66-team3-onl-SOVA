@@ -130,12 +130,42 @@
         padding: 20px 10px;
         cursor: pointer;
     }
+    &__prev{
+        position: absolute;
+        left: 20px;
+        top:50%;
+    }
+    &__next{
+        position: absolute;
+        right: 20px;
+        top:50%;
+    }
+    &__slider-btn{
+        background-color: transparent;
+        border: none;
+        width: 50px;
+        height: 50px; 
+        cursor: pointer;
+        transition: all 0.5s linear;
+        & path{
+            transition: all 0.5s linear;
+        }
+        &:hover path{
+            fill:#ff8e68;
+            animation: none;
+        }
+        &:active path{
+            fill:#E25324;
+        }
+    }
+
     &__pagination{
         display: flex;
         column-gap: 8px;
         position: absolute;
         top:444px;
-        left: 458px;
+        left: 50%;
+        transform: translateX(-50%);
     }
     &__line{
         width:148px;
