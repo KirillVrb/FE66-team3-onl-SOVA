@@ -438,13 +438,42 @@
   padding: 20px 10px;
   cursor: pointer;
 }
+.banner__prev {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+}
+.banner__next {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+}
+.banner__slider-btn {
+  background-color: transparent;
+  border: none;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: all 0.5s linear;
+}
+.banner__slider-btn path {
+  transition: all 0.5s linear;
+}
+.banner__slider-btn:hover path {
+  fill: #ff8e68;
+  animation: none;
+}
+.banner__slider-btn:active path {
+  fill: #E25324;
+}
 .banner__pagination {
   display: flex;
   -moz-column-gap: 8px;
        column-gap: 8px;
   position: absolute;
   top: 444px;
-  left: 458px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .banner__line {
   width: 148px;

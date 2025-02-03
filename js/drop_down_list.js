@@ -27,18 +27,37 @@ document.addEventListener('click', (event) => {
 //Слайдер
 const pagination = document.querySelectorAll('.banner .banner__pagination .banner__line');
 const slides = document.querySelectorAll('.banner .banner__slide');
+const nextSlide = document.querySelector('.banner__next');
+const prevSlide = document.querySelector(' .banner__prev');
+let indexSlide = 1;
 
+nextSlide.onclick = function (){
+    console.log(1111111);
+    indexSlide += 1;
+    if (indexSlide > pagination.length){
+        indexSlide = 1;
+    }
+    currentSlide(indexSlide);
+}
+prevSlide.onclick = function (){
+    indexSlide -= 1;
+    if (indexSlide <= 0){
+        indexSlide = pagination.length;
+    }
+    currentSlide(indexSlide);
+}
 function currentSlide(n){
+    indexSlide = n;
     for(let i=0; i < pagination.length; i++){
         slides[i].style.display = 'none';
         pagination[i].classList.remove('active');
         pagination[i].classList.add('inactive');
     }
-     
     slides[n-1].style.display = 'block';
     pagination[n-1].classList.remove('inactive')
     pagination[n-1].classList.add('active')
 }
+
 
 // Переход по клику на страницу Reserved
 // На первом слайде
