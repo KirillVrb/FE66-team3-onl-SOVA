@@ -22,7 +22,25 @@ document.addEventListener('click', (event) => {
     }
 });
 
+//Cookie
+const coockieModal = document.querySelector('.cookie');
+const cookieAccept = document.querySelector('.cookie__button');
+const cookieClose = document.querySelector('.cookie__icon-close');
 
+const cookiiItem = localStorage.getItem('cookie');
+
+if(JSON.parse(cookiiItem)){
+    coockieModal.style.display= 'none';
+}
+ 
+cookieAccept.addEventListener('click',() => {
+    localStorage.setItem("cookie", "true");
+    coockieModal.style.display= 'none';
+
+});
+cookieClose.addEventListener('click',() => {
+    coockieModal.style.display= 'none';
+});
 
 //Слайдер
 const pagination = document.querySelectorAll('.banner .banner__pagination .banner__line');
@@ -32,7 +50,6 @@ const prevSlide = document.querySelector(' .banner__prev');
 let indexSlide = 1;
 
 nextSlide.onclick = function (){
-    console.log(1111111);
     indexSlide += 1;
     if (indexSlide > pagination.length){
         indexSlide = 1;
