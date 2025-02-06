@@ -2,12 +2,20 @@
 
 //модалки
 
-const containerModal = document.getElementById('modal-container'); 
+const containerModal = document.getElementById('modal-container');
+const loginModal = document.getElementById('login-modal')
+const loginInput = document.querySelector('.login-username');
+const loginButton = document.querySelector('.login__button');
+const loginLink = document.getElementById('text-link-login') 
 
 containerModal.addEventListener('click', (event) => {     
     const button = event.target.closest('.open-modal');  
     if (button) {  
         const modalId = button.dataset.modal; 
+        const isLogin = localStorage.getItem('login')
+        if(modalId === 'login-modal' && JSON.parse(isLogin)) {
+            return
+        }
         const modal = document.getElementById(modalId); 
 
         if (modal) {  
@@ -21,6 +29,22 @@ document.addEventListener('click', (event) => {
         modal.classList.remove('active');
     }
 });
+
+const savedUsername = localStorage.getItem('username');
+if (savedUsername) {
+    loginLink.textContent = savedUsername;
+}
+loginButton.onclick = () => {
+    const username = loginInput.value;
+    if (username) {
+        localStorage.setItem('username', username); 
+        loginLink.textContent = username; 
+        loginModal.classList.remove('active'); 
+        localStorage.setItem('login','true')
+    }
+};
+
+
 
 //Cookie
 const coockieModal = document.querySelector('.cookie');
