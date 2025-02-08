@@ -51,20 +51,25 @@ const coockieModal = document.querySelector('.cookie');
 const cookieAccept = document.querySelector('.cookie__button');
 const cookieClose = document.querySelector('.cookie__icon-close');
 
-const cookiiItem = localStorage.getItem('cookie');
-
-if(JSON.parse(cookiiItem)){
+const closeCookie = () =>{
     coockieModal.style.display= 'none';
-}
- 
-cookieAccept.addEventListener('click',() => {
+} 
+const acceptModalCookie = (callback) => {
     localStorage.setItem("cookie", "true");
-    coockieModal.style.display= 'none';
-
-});
-cookieClose.addEventListener('click',() => {
-    coockieModal.style.display= 'none';
-});
+    callback();
+}
+const closeModalCookie = (callback) => {
+    callback();
+}
+const initCookie = () => {
+    const cookiiItem = localStorage.getItem('cookie');
+    if(JSON.parse(cookiiItem)){
+        coockieModal.style.display= 'none';
+    }
+    cookieAccept.addEventListener('click', () => acceptModalCookie(closeCookie));
+    cookieClose.addEventListener('click', () => closeModalCookie(closeCookie));
+}
+initCookie();
 
 //Слайдер
 const pagination = document.querySelectorAll('.banner .banner__pagination .banner__line');
