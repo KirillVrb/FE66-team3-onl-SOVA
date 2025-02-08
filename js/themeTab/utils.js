@@ -1,4 +1,12 @@
-import {themeSwitcherSelector} from "./selector.js";
+import {themeSwitcherSelector,dropdownList} from "./selector.js";
+
+const themeDropdown = () => {
+  if (dropdownList.classList.contains('disp')) {
+      dropdownList.classList.remove('disp')
+  } else (
+      dropdownList.classList.add('disp')
+  )
+}
 
 const darkTheme = () => {
     themeSwitcherSelector.classList.add("darktheme");
@@ -19,6 +27,6 @@ if (storedtheme) {
     themeSwitcherSelector.classList.add(storedtheme);
 }
 
-export {darkTheme,lightTheme}
+export {themeDropdown,darkTheme,lightTheme}
 
 

@@ -2,9 +2,11 @@
 
 import {reservationsTabFirst, reservationsTabSecond, reservationsTabThird} from './reservedTab/index.js'
 import {dropDownLanguageButton,languageSwitch} from './languageTab/index.js';
-import {darkThemeSwitcher,ligthThemeSwitcher} from './themeTab/index.js';
+import {themeDropdownNav,darkThemeSwitcher,ligthThemeSwitcher} from './themeTab/index.js';
 import {createArticlesTabs,getArticlesTabs} from './fetch/index.js';
 import {removeAllProducts,removeGrainsProducts,removeDessertsProducts,removeMeatProducts,removeSaladsProducts,removeSoupsProducts,removeBurgersProducts,removeDrinksProducts} from './products/index.js';
+import { initModals } from './modal/index.js';
+import { savedUsernameLogin } from './login/index.js';
 
 window.onload = function () {
     reservationsTabFirst()
@@ -12,6 +14,7 @@ window.onload = function () {
     reservationsTabThird()
     dropDownLanguageButton()
     languageSwitch()
+    themeDropdownNav()
     darkThemeSwitcher()
     ligthThemeSwitcher()
     createArticlesTabs()
@@ -24,49 +27,8 @@ window.onload = function () {
     removeSoupsProducts()
     removeBurgersProducts()
     removeDrinksProducts()
-};
-//модалки
-
-const containerModal = document.getElementById('modal-container');
-const loginModal = document.getElementById('login-modal')
-const loginInput = document.querySelector('.login-username');
-const loginButton = document.querySelector('.login__button');
-const loginLink = document.getElementById('text-link-login') 
-
-containerModal.addEventListener('click', (event) => {     
-    const button = event.target.closest('.open-modal');  
-    if (button) {  
-        const modalId = button.dataset.modal; 
-        const isLogin = localStorage.getItem('login')
-        if(modalId === 'login-modal' && JSON.parse(isLogin)) {
-            return
-        }
-        const modal = document.getElementById(modalId); 
-
-        if (modal) {  
-            modal.classList.add('active');
-        }
-    }
-});
-document.addEventListener('click', (event) => { 
-    if (event.target.closest('.login__btn-close, .basket__btn-close, .favourites__btn-close')) { 
-        const modal = event.target.closest('.login, .basket, .favourites'); 
-        modal.classList.remove('active');
-    }
-});
-
-const savedUsername = localStorage.getItem('username');
-if (savedUsername) {
-    loginLink.textContent = savedUsername;
-}
-loginButton.onclick = () => {
-    const username = loginInput.value;
-    if (username) {
-        localStorage.setItem('username', username); 
-        loginLink.textContent = username; 
-        loginModal.classList.remove('active'); 
-        localStorage.setItem('login','true')
-    }
+    initModals()
+    savedUsernameLogin()
 };
 
 //Cookie
@@ -126,15 +88,3 @@ function currentSlide(n){
     pagination[n-1].classList.remove('inactive')
     pagination[n-1].classList.add('active')
 }
-
-//выпадающий список
-const dropdownButton = document.querySelector('#dropdown-button')
-const dropdownList = document.querySelector('#dropdown-list')
-
-dropdownButton.addEventListener('click', () => {
-    if (dropdownList.classList.contains('disp')) {
-        dropdownList.classList.remove('disp')
-    } else (
-        dropdownList.classList.add('disp')
-    )
-});
