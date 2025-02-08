@@ -1,11 +1,21 @@
-import {darkbtnSelector,ligthbtnSelector} from "./selector.js";
-import {darkTheme,lightTheme} from "./utils.js";
+import {
+  darkbtnSelector,
+  ligthbtnSelector,
+  dropdownButton,
+} from "./selector.js";
+import { themeDropdown, darkTheme, lightTheme } from "./utils.js";
 
-function darkThemeSwitcher () {
-    darkbtnSelector.addEventListener("click", darkTheme);
-}
-function ligthThemeSwitcher () {
-    ligthbtnSelector.addEventListener("click", lightTheme);
+//выпадающий список
+function themeDropdownNav() {
+  dropdownButton.addEventListener("click", themeDropdown);
 }
 
-export {darkThemeSwitcher,ligthThemeSwitcher}
+//смена цвета
+function darkThemeSwitcher() {
+  darkbtnSelector.addEventListener("click", darkTheme);
+}
+function ligthThemeSwitcher() {
+  ligthbtnSelector.addEventListener("click", lightTheme);
+}
+
+export { themeDropdownNav, darkThemeSwitcher, ligthThemeSwitcher };
